@@ -37,7 +37,7 @@ if ((in_array($_FILES["file"]["type"], $allowedTypes))
 <body>
 
 <form
-action="https://web.njit.edu/~baw7/project1/uploads/forwardpage.html" method="post"
+action="https://web.njit.edu/~baw7/project1/forwardpage.html" method="post"
 enctype="multipart/form-data">
 Select file to upload:
 <input type="file" name="fileToUpload" id="fileToUpload">
