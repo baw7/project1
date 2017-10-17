@@ -29,7 +29,8 @@ if ((in_array($_FILES["file"]["type"], $allowedTypes))
 			       }
 			       else
 			       {
-			       echo "Invalid file" };
+			       echo "Invalid file";
+			       }
 			       ?>
 <!DOCTYPE html>
 <html>
