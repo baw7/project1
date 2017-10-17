@@ -23,7 +23,7 @@ if ((in_array($_FILES["file"]["type"], $allowedTypes))
 		   {
 		       move_uploaded_file($_FILES["file"]["tmp_name"],
 		       "upload/" . $_FILES["file"]["name"]);
-		           header('Location: forwardpage.html');
+		           header('Location: forwardpage.php');
 			     }
 			       }
 			       }
@@ -37,7 +37,7 @@ if ((in_array($_FILES["file"]["type"], $allowedTypes))
 <body>
 
 <form
-action="https://web.njit.edu/~baw7/project1/forwardpage.html" method="post"
+action="https://web.njit.edu/~baw7/project1/forwardpage.php" method="post"
 enctype="multipart/form-data">
 Select file to upload:
 <input type="file" name="fileToUpload" id="fileToUpload">
