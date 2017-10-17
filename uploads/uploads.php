@@ -19,7 +19,7 @@ if(isset($_POST["submit"])) {
   // This results in an error.
   // The output above is before the header() call
   header('Location
-https://web.njit.edu/~baw7/project1/index.php?page=fileToUpload&filename=name');
+https://web.njit.edu/~baw7/project1/forwardpage.php');
 exit;
 $file = fopen("contacts.csv","r");
 print_r(fgetcsv($file));
