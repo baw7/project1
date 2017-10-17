@@ -18,8 +18,7 @@ if(isset($_POST["submit"])) {
   $GET ["name"];
   // This results in an error.
   // The output above is before the header() call
-  header('Location
-https://web.njit.edu/~baw7/project1/forwardpage.php');
+  header("Location: https://web.njit.edu/~baw7/project1/forwardpage.php");
 exit;
 $file = fopen("contacts.csv","r");
 print_r(fgetcsv($file));
