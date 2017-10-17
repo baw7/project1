@@ -1,19 +1,69 @@
 <?php
-// Create a table from a csv file 
-echo "<html><body><table>\n\n";
-$f = fopen("so-csv.csv", "r");
-while (($line = fgetcsv($f)) !== false) {
-        $row = $line[0];    // We need to get the actual row (it is the first
-	element in a 1-element array)
-	        $cells = explode(";",$row);
-		        echo "<tr>";
-			        foreach ($cells as $cell) {
-				            echo "<td>" .
-					    htmlspecialchars($cell) . "</td>";
-					            }
-						            echo "</tr>\n";
-							    }
-							    fclose($f);
-							    echo
-							    "\n</table></body></html>";
-							    ?>
+
+$row = 1;
+if (($handle = fopen("sites/default/files/Bok1.csv", "r")) !== FALSE) {
+    
+        echo '<table border="1">';
+	    
+	        while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+		        $num = count($data);
+			        if ($row == 1) {
+				            echo '<thead><tr>';
+					            }else{
+						                echo '<tr>';
+								        }
+									        
+										        for
+											($c=0;
+											$c
+											<
+											$num;
+											$c++)
+											{
+											            //echo
+												    $data[$c]
+												    .
+												    "<br
+												    />\n";
+												                if(empty($data[$c]))
+														{
+														               $value
+															       =
+															       "&nbsp;";
+															                   }else{
+																	                  $value
+																			  =
+																			  $data[$c];
+																			              }
+																				                  if
+																						  ($row
+																						  ==
+																						  1)
+																						  {
+																						                  echo
+																								  '<th>'.$value.'</th>';
+																								              }else{
+																									                      echo
+																											      '<td>'.$value.'</td>';
+																											                  }
+																													          }
+																														          
+																															          if
+																																  ($row
+																																  ==
+																																  1)
+																																  {
+																																              echo
+																																	      '</tr></thead><tbody>';
+																																	              }else{
+																																		                  echo
+																																				  '</tr>';
+																																				          }
+																																					          $row++;
+																																						      }
+																																						          
+																																							      echo
+																																							      '</tbody></table>';
+																																							          fclose($handle);
+																																								  }
+																																								  ?>
