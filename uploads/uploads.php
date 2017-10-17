@@ -1,3 +1,10 @@
+<html>
+<?php
+// This results in an error.
+// The output above is before the header() call
+header('Location: /web.njit.edu/~baw7/project1/forwardpage.php');
+?>
+
 <?php
 $target_dir = "https://web.njit.edu/~baw7/project1/uploads";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -16,8 +23,6 @@ if(isset($_POST["submit"])) {
         }
   $GET ["fileToUpload"];
   $GET ["name"];
-  // This results in an error.
-  // The output above is before the header() call
   header("Location: https://web.njit.edu/~baw7/project1/forwardpage.php");
 exit;
 $file = fopen("contacts.csv","r");
