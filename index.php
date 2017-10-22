@@ -13,7 +13,7 @@ class main
 {
     public function __construct()
     {
-        $pageRequest = 'form';
+        $pageRequest = 'home';
         if (isset($_REQUEST['page'])) {
             $pageRequest = $_REQUEST['page'];
         }
@@ -45,14 +45,14 @@ abstract class page {
         echo 'Post method parent class';
     }
 }
-class form  extends page {
+class home  extends page {
     public function get()
     {
         $form = '<form method="post" enctype="multipart/form-data">';
         $form .= '<input type="file" name="fileToUpload" id="fileToUpload">';
         $form .= '<input type="submit"	value"Upload CSV File" name="submit">';
         $form .= '</form>';
-        $this->html .= '<h1><b>Upload your CSV File Here!</h1></b>';
+        $this->html .= '<h1><b>Upload CSV</h1></b>';
         $this->html .= $form;
     }
     public function post()
@@ -62,10 +62,10 @@ class form  extends page {
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $imageFileName = pathinfo($target_file,PATHINFO_BASENAME);
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-        header('Location: index.php?page=htmlTable&fileName='.$imageFileName);
+        header('Location: index.php?page=table&fileName='.$imageFileName);
     }
 }
-class htmlTable extends page {
+class table extends page {
     public function get()
     {
         $tableDisplay="";
